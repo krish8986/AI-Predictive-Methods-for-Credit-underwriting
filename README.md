@@ -53,11 +53,9 @@ langdetect
 
 ## How to Run
 
-### Clone the Repository:
-```bash
-git clone https://github.com/Anilkumar322/AI-Predictive-Methods-for-Credit-underwriting.git
-cd AI-Predictive-Methods-for-Credit-underwriting
-```
+## Credits
+This project is adapted and extended from an open-source implementation.
+The repository was restructured, cleaned, and enhanced for learning and deployment purposes.
 
 ### Install Dependencies:
 ```bash
@@ -133,12 +131,7 @@ Ensure you have a Unicode-compatible font (e.g., `FreeSerif.ttf`) in your workin
 
 This project is licensed under the **MIT License**. See the `LICENSE` file for details.
 
-## Contributors
-
-- **Bollapalli Anil Kumar** (Developer)
-- [GitHub Profile](https://github.com/Anilkumar322)
-
 ## Feedback
 
-For any issues or suggestions, please open an **issue** on the [GitHub repository](https://github.com/Anilkumar322/AI-Predictive-Methods-for-Credit-underwriting/issues).
+For any issues or suggestions.
 
