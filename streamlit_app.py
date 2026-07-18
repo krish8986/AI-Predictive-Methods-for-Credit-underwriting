@@ -4,6 +4,7 @@ from io import BytesIO
 from pathlib import Path
 from typing import Any, Dict, Optional
 
+import matplotlib.pyplot as plt
 import requests
 import streamlit as st
 from fpdf import FPDF
@@ -37,6 +38,8 @@ def request_prediction(payload: Dict[str, Any]) -> Dict[str, Any]:
         "prediction",
         "approval_probability",
         "rejection_probability",
+        "top_positive",
+        "top_negative",
     }
     if not required_fields.issubset(result):
         raise ValueError("The prediction service returned an incomplete response.")
@@ -86,18 +89,72 @@ def create_pdf_report(
     pdf.ln(4)
 
     pdf.set_font(font_name, size=12)
+    pdf.cell(0, 8, txt="AI Explainability", ln=True)
+    pdf.set_font(font_name, size=10)
+
+    pdf.cell(0, 6, txt="Top Positive Factors:", ln=True)
+    for item in result.get("top_positive", []):
+        pdf.cell(
+            0,
+            6,
+            txt=f"+ {item['feature']} ({item['impact']:.4f})",
+            ln=True,
+        )
+
+    pdf.ln(2)
+
+    pdf.cell(0, 6, txt="Top Negative Factors:", ln=True)
+    for item in result.get("top_negative", []):
+        pdf.cell(
+            0,
+            6,
+            txt=f"- {item['feature']} ({item['impact']:.4f})",
+            ln=True,
+        )
+
+    pdf.ln(4)
+
+    pdf.set_font(font_name, size=12)
     pdf.cell(0, 8, txt="Application Snapshot", ln=True)
     pdf.set_font(font_name, size=10)
     for label, value in payload.items():
         pdf.cell(0, 6, txt=f"{label.replace('_', ' ').title()}: {value}", ln=True)
 
-    buffer = BytesIO()
-    pdf.output(buffer)
-    return buffer.getvalue()
+    return pdf.output(dest="S").encode("latin1")
+    # return pdf_output
 
 
 def clamp_percentage(value: float) -> int:
     return max(0, min(100, round(value * 100)))
+
+
+def show_feature_importance(result):
+    positive = result.get("top_positive", [])
+    negative = result.get("top_negative", [])
+
+    features = []
+    values = []
+
+    for item in positive:
+        features.append(item["feature"])
+        values.append(item["impact"])
+
+    for item in negative:
+        features.append(item["feature"])
+        values.append(-item["impact"])
+
+    if not features:
+        return
+
+    fig, ax = plt.subplots(figsize=(8, 4))
+    colors = ["green" if v > 0 else "red" for v in values]
+    ax.barh(features, values, color=colors)
+    ax.axvline(0, color="black", linewidth=1)
+    ax.set_xlabel("SHAP Impact")
+    ax.set_title("Top Factors Influencing Prediction")
+    ax.set_title("Feature Importance")
+    st.pyplot(fig)
+    plt.close(fig)
 
 
 st.markdown(
@@ -310,9 +367,9 @@ if result:
     with st.container(border=True):
         st.markdown('<div class="result-heading">Underwriting Result</div>', unsafe_allow_html=True)
         if result["prediction"] == "Approved":
-            st.success("Approved")
+            st.success("✅ Loan Approved")
         else:
-            st.warning("Rejected")
+            st.error("❌ Loan Rejected")
 
         approval_probability = float(result["approval_probability"])
         rejection_probability = float(result["rejection_probability"])
@@ -323,6 +380,36 @@ if result:
         with metric_two:
             st.metric("Rejection probability", f"{rejection_probability:.1%}")
             st.progress(clamp_percentage(rejection_probability))
+
+        st.divider()
+        st.subheader("AI Explainability")
+
+        positive = result.get("top_positive", [])
+        if positive:
+            st.success("Factors Supporting Approval")
+            for item in positive:
+                st.markdown(
+                    f"""
+✅ **{item['feature']}**
+
+Impact: **{item['impact']:.4f}**
+"""
+                )
+
+        negative = result.get("top_negative", [])
+        if negative:
+            st.error("Factors Increasing Risk")
+            for item in negative:
+                st.markdown(
+                    f"""
+❌ **{item['feature']}**
+
+Impact: **{item['impact']:.4f}**
+"""
+                )
+
+        st.divider()
+        show_feature_importance(result)
 
         report = create_pdf_report(
             st.session_state.applicant_details,
