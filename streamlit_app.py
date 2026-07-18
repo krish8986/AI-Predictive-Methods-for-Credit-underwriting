@@ -1,7 +1,6 @@
 from matplotlib.pyplot import step
 import streamlit as st
-import pandas as pd
-import joblib
+import requests
 from io import BytesIO
 from fpdf import FPDF
 from transformers import pipeline
@@ -63,9 +62,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Load the trained ML model
-model_path = 'best_features_model.pkl'
-model = joblib.load(model_path)
+API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
 
 # Initialize session state variables
 if "loan_details" not in st.session_state:
@@ -193,33 +190,28 @@ elif st.session_state["current_step"] == "Upload Documents":
 elif st.session_state["current_step"] == "Final Decision":
     loan_details = st.session_state["loan_details"]
 
-    # Prepare input data for prediction
-    input_data = pd.DataFrame({
-        "cibil_score": [loan_details["cibil_score"]],
-        "income_annum": [loan_details["income_annum"]],
-        "loan_amount": [loan_details["loan_amount"]],
-        "loan_term": [loan_details["loan_term"]],
-        "loan_percent_income": [loan_details["loan_percent_income"]],
-        "active_loans": [loan_details["active_loans"]],
-        "gender": [1 if loan_details["gender"] == "Women" else 0],
-        "marital_status": [1 if loan_details["marital_status"] == "Married" else 0],
-        "employee_status_self_employed": [1 if loan_details["employee_status"] == "self employed" else 0],
-        "employee_status_unemployed": [1 if loan_details["employee_status"] == "unemployed" else 0],
-        "employee_status_student": [1 if loan_details["employee_status"] == "student" else 0],
-        "residence_type_OWN": [1 if loan_details["residence_type"] == "OWN" else 0],
-        "residence_type_RENT": [1 if loan_details["residence_type"] == "RENT" else 0],
-        "loan_purpose_Personal": [1 if loan_details["loan_purpose"] == "Personal" else 0],
-        "loan_purpose_Home_Renovation": [1 if loan_details["loan_purpose"] == "Home Renovation" else 0],
-        "loan_purpose_Education": [1 if loan_details["loan_purpose"] == "Education" else 0],
-        "loan_purpose_Vehicle": [1 if loan_details["loan_purpose"] == "Vehicle" else 0],
-    })
-    
-    input_data = input_data.reindex(columns=model.feature_names_in_, fill_value=0)
-
     #prediction
     try:
-        prediction = model.predict(input_data)
-        prediction_proba = model.predict_proba(input_data)
+        prediction_payload = {
+            "cibil_score": loan_details["cibil_score"],
+            "income_annum": loan_details["income_annum"],
+            "loan_amount": loan_details["loan_amount"],
+            "loan_term": loan_details["loan_term"],
+            "loan_percent_income": loan_details["loan_percent_income"],
+            "active_loans": loan_details["active_loans"],
+            "gender": loan_details["gender"],
+            "marital_status": loan_details["marital_status"],
+            "employee_status": loan_details["employee_status"],
+            "residence_type": loan_details["residence_type"],
+            "loan_purpose": loan_details["loan_purpose"],
+        }
+        response = requests.post(
+            f"{API_BASE_URL}/predict", json=prediction_payload, timeout=10
+        )
+        response.raise_for_status()
+        prediction_response = response.json()
+        prediction = prediction_response["prediction"]
+        prediction_proba = prediction_response["probabilities"]
 
         if prediction[0] == 1:
             st.markdown("### Loan Rejected ❌")

@@ -1,46 +1,67 @@
-import pandas as pd
+from pathlib import Path
+
 import joblib
-from sklearn.model_selection import train_test_split
+import pandas as pd
+from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, classification_report
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder
 
-# Load the dataset
-file_path = 'credit_underwriting1.csv'  # Update the file path as needed
-data = pd.read_csv(file_path)
 
-# Preprocessing
-# Encode categorical variables
-categorical_columns = ['gender', 'marital_status', 'employee_status', 'residence_type', 'loan_purpose']
-label_encoders = {}
-for col in categorical_columns:
-    le = LabelEncoder()
-    data[col] = le.fit_transform(data[col])
-    label_encoders[col] = le
+# Load the same source dataset regardless of the shell working directory.
+project_root = Path(__file__).resolve().parent
+data_path = project_root / "credit_underwriting1.csv"
+data = pd.read_csv(data_path)
 
-# Encode the target variable
-label_encoder_status = LabelEncoder()
-data['loan_status'] = label_encoder_status.fit_transform(data['loan_status'])
+# Separate the target and exclude the identifier from model features.
+X = data.drop(columns=["loan_id", "loan_status"])
+y = data["loan_status"]
 
-# Define features and target
-X = data.drop(columns=['loan_id', 'loan_status'])  # Exclude ID and target
-y = data['loan_status']
+# Preserve the existing train/test split configuration.
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 
-# Split the dataset into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Transform raw categorical inputs while leaving numeric columns unchanged.
+categorical_columns = [
+    "gender",
+    "marital_status",
+    "employee_status",
+    "residence_type",
+    "loan_purpose",
+]
+numeric_columns = [column for column in X.columns if column not in categorical_columns]
 
-# Initialize the Gradient Boosting Classifier
-model = GradientBoostingClassifier(random_state=42)
+preprocessing = ColumnTransformer(
+    transformers=[
+        (
+            "categorical",
+            OneHotEncoder(handle_unknown="ignore"),
+            categorical_columns,
+        ),
+        ("numeric", "passthrough", numeric_columns),
+    ],
+    sparse_threshold=0,
+)
 
-# Train the model
-model.fit(X_train, y_train)
+# Fit preprocessing and the classifier together so inference uses identical transformations.
+pipeline = Pipeline(
+    steps=[
+        ("preprocessing", preprocessing),
+        ("classifier", GradientBoostingClassifier(random_state=42)),
+    ]
+)
+pipeline.fit(X_train, y_train)
 
-# Save the model with feature names explicitly added
-model.feature_names_in_ = X.columns.tolist()
-joblib.dump(model, 'best_features_model.pkl')
+# Persist the complete production artifact without replacing the legacy model.
+model_path = project_root / "models" / "credit_underwriting_pipeline.pkl"
+model_path.parent.mkdir(parents=True, exist_ok=True)
+joblib.dump(pipeline, model_path)
 
-# Evaluate the model
-y_pred = model.predict(X_test)
+# Preserve the existing evaluation metrics on the held-out test set.
+y_pred = pipeline.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 classification_report_result = classification_report(y_test, y_pred)
 
