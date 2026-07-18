@@ -1,137 +1,662 @@
-# AI Predictive Methods for Credit Underwriting
+# 🚀 Credit Underwriting Dashboard
 
-This project is a **Streamlit-based AI Predictive Methods for Credit Underwriting** application that utilizes a machine learning model to predict whether a loan application will be **approved or rejected** based on user-provided inputs. The app also generates a **downloadable PDF report** with detailed results and insights.
+### Production-Ready AI Credit Risk Assessment Platform
 
-##  Presentation  
-[Click here to view the project presentation](https://www.canva.com/design/DAGd4QHNyMw/PqKP2SuqxH5LwEoZloEbwg/view?utm_content=DAGd4QHNyMw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0d00988ec0)
+A production-style Machine Learning application that predicts whether a loan application should be **Approved** or **Rejected** using a trained **Gradient Boosting Model** deployed behind a **FastAPI REST API** and consumed by a modern **Streamlit Dashboard**.
 
-## Features
+Unlike traditional academic ML projects, this project follows a **production-inspired architecture** where the frontend, backend, and ML pipeline are cleanly separated.
 
-- **Interactive Web App**: Built with Streamlit for an intuitive and responsive user interface.
-- **User Inputs**: Fields for CIBIL score, income, loan amount, loan term, and more.
-- **Prediction Model**: Uses a pre-trained machine learning model to determine loan approval status.
-- **Downloadable Report**: Generates a professional **PDF report** summarizing predictions and user inputs.
-- **EMI Calculator**: Calculate monthly EMI based on loan amount, interest rate, and term.
-- **AI Chatbot**: Provides financial advice and helps users with loan-related queries.
-- **Enhanced Styling**: Custom CSS for a better user experience.
+---
 
-## Technologies Used
+## ✨ Key Highlights
 
-- **Python**: Programming language for building the application.
-- **Streamlit**: Framework for creating the interactive web app.
-- **FPDF**: Library for generating downloadable PDF reports.
-- **pandas**: For data preparation and handling user inputs.
-- **matplotlib**: For optional visualizations.
-- **joblib**: For loading the pre-trained machine learning model.
-- **transformers**: For NLP-based chatbot responses (using pre-trained models).
-- **langdetect**: For language detection (used in the chatbot).
+- 🧠 Production Machine Learning Pipeline
+- ⚡ FastAPI REST Backend
+- 🎨 Modern Streamlit Dashboard
+- 📊 Loan Approval Probability
+- 📄 PDF Decision Report
+- ✅ Input Validation
+- 🔍 Health Monitoring
+- 🔄 End-to-End API Communication
+- 🏗 Production-Oriented Architecture
 
-## Prerequisites
+---
 
-Ensure you have the following installed on your system:
+# 🏛 System Architecture
 
-- **Python 3.7+**
-- **pip (Python package manager)**
+```text
+                   User
+                     │
+                     ▼
+        Streamlit Dashboard (Frontend)
+                     │
+             HTTP POST /predict
+                     │
+                     ▼
+            FastAPI Prediction API
+                     │
+                     ▼
+      sklearn Production Pipeline
+                     │
+     ┌───────────────┴───────────────┐
+     ▼                               ▼
+ColumnTransformer          GradientBoostingClassifier
+     │
+     ▼
+OneHotEncoder
+     │
+     ▼
+ Loan Approval Prediction
+```
 
-### Install Dependencies
-Run the following command to install all required libraries:
+---
+
+# 🌟 Features
+
+## 🎯 Intelligent Credit Assessment
+
+Predicts whether a loan application should be approved using a trained Machine Learning model.
+
+---
+
+## ⚡ FastAPI Backend
+
+The prediction engine is exposed as a REST API.
+
+Endpoints:
+
+- `/health`
+- `/predict`
+
+This architecture allows multiple clients to consume the prediction service.
+
+---
+
+## 🎨 Modern Dashboard
+
+The Streamlit application provides a clean dashboard with:
+
+- Applicant Information
+- Employment Details
+- Loan Details
+- Financial Information
+- Asset Information
+
+---
+
+## 📈 Prediction Analytics
+
+The dashboard displays
+
+- Approval Probability
+- Rejection Probability
+- Decision Status
+- Progress Indicators
+
+---
+
+## 📄 PDF Report
+
+Generate a downloadable underwriting report containing:
+
+- Applicant details
+- Prediction
+- Probabilities
+- Submitted application
+
+---
+
+## 🧩 Production ML Pipeline
+
+The project uses a serialized sklearn Pipeline containing
+
+- ColumnTransformer
+- OneHotEncoder
+- GradientBoostingClassifier
+
+This guarantees that training and inference use identical preprocessing.
+
+---
+
+## 🛡 Input Validation
+
+The dashboard validates
+
+- Email
+- Phone Number
+- Required Fields
+
+before sending requests to the API.
+
+---
+
+## ❤️ Service Health Monitoring
+
+The dashboard continuously checks the FastAPI server using the `/health` endpoint before making prediction requests.
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Frontend | Streamlit |
+| Backend | FastAPI, Uvicorn |
+| Machine Learning | scikit-learn |
+| Data Processing | pandas, NumPy |
+| Model Persistence | joblib |
+| Reporting | FPDF2 |
+| Communication | REST API, Requests |
+| Language | Python |
+
+---
+
+# 📂 Project Structure
+
+```text
+AI-Predictive-Methods-for-Credit-underwriting/
+│
+├── api/
+│   ├── __init__.py
+│   ├── main.py                # FastAPI application
+│   ├── model_loader.py        # Loads production ML pipeline
+│   ├── predictor.py           # Prediction logic
+│   └── schemas.py             # Request/Response models
+│
+├── models/
+│   └── credit_underwriting_pipeline.pkl
+│
+├── streamlit_app.py           # Streamlit dashboard
+├── model_training.py          # Model training pipeline
+├── credit_underwriting1.csv   # Training dataset
+├── requirements.txt
+├── FreeSerif.ttf              # PDF report font
+├── README.md
+│
+└── legacy/
+    └── best_features_model.pkl   # Legacy model artifact
+```
+
+> **Note:** `best_features_model.pkl` is retained only for historical reference. All predictions are served using `credit_underwriting_pipeline.pkl`.
+
+---
+
+# 🔄 Application Workflow
+
+```text
+User
+   │
+   ▼
+Fill Loan Application
+   │
+   ▼
+Streamlit Dashboard
+   │
+HTTP POST /predict
+   │
+   ▼
+FastAPI Backend
+   │
+Load Production Pipeline
+   │
+Preprocess Input
+   │
+Generate Prediction
+   │
+Return JSON Response
+   │
+   ▼
+Streamlit Dashboard
+   │
+Display Decision
+   │
+Generate PDF Report
+```
+
+---
+
+# 🔌 REST API
+
+## Health Endpoint
+
+### Request
+
+```http
+GET /health
+```
+
+### Response
+
+```json
+{
+    "status": "ok",
+    "model_loaded": true
+}
+```
+
+---
+
+## Prediction Endpoint
+
+### Request
+
+```http
+POST /predict
+```
+
+### Request Body
+
+```json
+{
+  "applicant_age": 59,
+  "gender": "Women",
+  "marital_status": "Single",
+  "employee_status": "employed",
+  "residence_type": "MORTGAGE",
+  "loan_purpose": "Vehicle",
+  "income_annum": 9600000,
+  "loan_amount": 2400000,
+  "loan_term": 12,
+  "cibil_score": 778,
+  "residential_assets_value": 17600000,
+  "commercial_assets_value": 22700000,
+  "luxury_assets_value": 8000000,
+  "bank_asset_value": 29900000,
+  "loan_interest": 6.54,
+  "loan_percent_income": 8,
+  "active_loans": 3
+}
+```
+
+### Response
+
+```json
+{
+  "prediction": "Approved",
+  "approval_probability": 0.9987,
+  "rejection_probability": 0.0013
+}
+```
+
+---
+
+# ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/krish8986/AI-Predictive-Methods-for-Credit-underwriting.git
+
+cd AI-Predictive-Methods-for-Credit-underwriting
+```
+
+Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### `requirements.txt` File Contains:
-```
-streamlit
-pandas
-matplotlib
-joblib
-fpdf2
-transformers
-langdetect
-```
+---
 
-## How to Run
+# ▶️ Running the Project
 
-## Credits
-This project is adapted and extended from an open-source implementation.
-The repository was restructured, cleaned, and enhanced for learning and deployment purposes.
+## Step 1 — Start FastAPI
 
-### Install Dependencies:
 ```bash
-pip install -r requirements.txt
+python -m uvicorn api.main:app --reload
 ```
 
-### Run the Application:
+FastAPI will be available at
+
+```
+http://127.0.0.1:8000
+```
+
+Swagger Documentation
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## Step 2 — Start Streamlit
+
+Open another terminal
+
 ```bash
-streamlit run streamlit_app.py
+python -m streamlit run streamlit_app.py
 ```
 
-Open the provided **local URL** in your browser to access the app.
-
-## File Structure
+Dashboard
 
 ```
-├── streamlit_app.py  # Main application file
-├── requirements.txt  # List of required Python libraries
-├── best_features_model.pkl  # Pre-trained machine learning model file
-├── FreeSerif.ttf  # Font for generating PDF reports (ensure this font is available)
+http://localhost:8501
 ```
 
-## User Inputs
+---
 
-The app provides the following input fields in the sidebar:
+# 📊 Input Features
 
-- **CIBIL Score** (300-900)
-- **Annual Income** (INR)
-- **Loan Amount** (INR)
-- **Loan Term** (months)
-- **Number of Active Loans**
-- **Gender**
-- **Marital Status**
-- **Employment Status**
-- **Residence Type**
-- **Loan Purpose**
+The production model predicts loan approval using **17 input features**.
 
-## Output
+### Applicant Information
 
-- **Loan Status**: Displays whether the loan is **Approved** or **Rejected**.
-- **Prediction Probabilities**: Shows the probability of approval and rejection.
-- **Downloadable PDF Report**:
-  - Prediction results.
-  - Input details provided by the user.
-  - Summary of probabilities.
+- Applicant Age
+- Gender
+- Marital Status
 
-## Deployment
+### Employment Details
 
-The application is live and can be accessed at:
-[AI Predictive Methods for Credit Underwriting](https://ai-predictive-methods-for-credit-underwriting-csu8gym5fctrsyru.streamlit.app/)
+- Employment Status
+- Residence Type
+- Active Loans
 
-To deploy the app on **Streamlit Cloud**:
+### Loan Details
 
-To deploy the app on **Streamlit Cloud**:
+- Loan Purpose
+- Loan Amount
+- Loan Term
+- Interest Rate
+- Loan Percentage of Income
 
-1. **Push the project to GitHub.**
-2. **Connect your GitHub repository to Streamlit Cloud.**
-3. **Ensure `requirements.txt` is present for dependency installation.**
-4. **Deploy and access your app via the Streamlit Cloud link.**
+### Financial Information
 
-## Troubleshooting
+- Annual Income
+- CIBIL Score
 
-### Missing Library Error
-If you encounter an error like `ModuleNotFoundError: No module named 'fpdf'`, install it manually:
-```bash
-pip install fpdf
+### Asset Information
+
+- Residential Assets
+- Commercial Assets
+- Luxury Assets
+- Bank Assets
+
+---
+
+# 📄 Output
+
+The application returns:
+
+- ✅ Loan Decision
+- ✅ Approval Probability
+- ✅ Rejection Probability
+- ✅ Downloadable PDF Report
+- ✅ API Status Indicator
+
+---
+
+# 📸 Screenshots
+
+> Replace the placeholders below after capturing screenshots.
+
+### Dashboard
+
+```
+docs/images/dashboard.png
 ```
 
-### Unicode Character Error (₹ Symbol)
-Ensure you have a Unicode-compatible font (e.g., `FreeSerif.ttf`) in your working directory. Update the PDF font registration in the code if necessary.
+### Prediction Result
 
-## License
+```
+docs/images/result.png
+```
 
-This project is licensed under the **MIT License**. See the `LICENSE` file for details.
+### Swagger API
 
-## Feedback
+```
+docs/images/swagger.png
+```
 
-For any issues or suggestions.
+### PDF Report
 
+```
+docs/images/pdf_report.png
+```
+
+---
+
+# 🚀 Future Roadmap
+
+The project will continue evolving with production-grade Machine Learning and AI features.
+
+## Phase 1 ✅ (Completed)
+
+- Modern Streamlit Dashboard
+- FastAPI REST Backend
+- Production sklearn Pipeline
+- Loan Approval Prediction
+- PDF Report Generation
+- Input Validation
+- Health Check Endpoint
+- API Integration
+
+---
+
+## Phase 2 🚧 (In Progress)
+
+- SHAP Explainability
+- Feature Importance Visualization
+- Prediction Reasoning
+- Decision Waterfall Charts
+
+---
+
+## Phase 3 🔜
+
+- Retrieval-Augmented Generation (RAG)
+- LangChain Integration
+- ChromaDB Vector Database
+- Groq LLM Integration
+- Credit Policy Knowledge Assistant
+
+---
+
+## Phase 4 🔜
+
+- Docker Support
+- CI/CD Pipeline
+- Cloud Deployment
+- Monitoring & Logging
+- Authentication
+- Rate Limiting
+
+---
+
+# 📈 Planned Architecture
+
+```text
+                    User
+                      │
+                      ▼
+           Streamlit Dashboard
+                      │
+          ┌───────────┴───────────┐
+          ▼                       ▼
+ Prediction API            Knowledge Assistant
+          │                       │
+          ▼                       ▼
+     FastAPI Backend         LangChain
+          │                       │
+          ▼                       ▼
+ sklearn Pipeline            ChromaDB
+          │                       │
+          ▼                       ▼
+ Gradient Boosting          Groq LLM
+```
+
+---
+
+# 💡 Engineering Highlights
+
+This project demonstrates practical software engineering concepts beyond traditional Machine Learning projects.
+
+### Backend Engineering
+
+- REST API Development
+- FastAPI
+- Request Validation
+- Response Serialization
+- Modular Project Structure
+
+---
+
+### Machine Learning
+
+- Gradient Boosting Classifier
+- Production sklearn Pipeline
+- ColumnTransformer
+- OneHotEncoder
+- Model Serialization
+- Probability Prediction
+
+---
+
+### Frontend
+
+- Streamlit Dashboard
+- Custom CSS
+- Interactive Forms
+- API Integration
+- PDF Report Generation
+
+---
+
+### Software Engineering
+
+- Separation of Concerns
+- Frontend–Backend Architecture
+- Modular Design
+- Error Handling
+- Input Validation
+- Clean Code Organization
+
+---
+
+# 🎯 Skills Demonstrated
+
+- Python
+- FastAPI
+- Streamlit
+- scikit-learn
+- REST APIs
+- Machine Learning
+- Data Preprocessing
+- API Integration
+- Model Deployment
+- Software Architecture
+- Git
+- GitHub
+
+---
+
+# 📚 Key Learnings
+
+During this project I learned how to:
+
+- Design a production-inspired ML architecture
+- Separate frontend from backend services
+- Build REST APIs with FastAPI
+- Deploy ML models using sklearn Pipelines
+- Maintain preprocessing consistency between training and inference
+- Generate prediction reports programmatically
+- Validate user inputs before inference
+- Structure projects for scalability and maintainability
+
+---
+
+# 📊 Resume Highlights
+
+This project demonstrates experience in:
+
+- Production-ready Machine Learning
+- API Development
+- Backend Engineering
+- ML Model Deployment
+- Dashboard Development
+- Software Design
+- Data Processing
+
+---
+
+# 🎤 Interview Discussion Topics
+
+This repository can be used to discuss:
+
+- Why FastAPI instead of Flask?
+- Why use a sklearn Pipeline?
+- Why separate frontend and backend?
+- Why OneHotEncoder instead of LabelEncoder?
+- How is preprocessing kept consistent?
+- How does the REST API work?
+- How would this scale for thousands of requests?
+- How would Docker improve deployment?
+- How would SHAP explain predictions?
+- How would a RAG assistant improve the system?
+
+---
+
+# 🤝 Contributions
+
+Contributions, suggestions, and improvements are welcome.
+
+If you find an issue or have an idea for improvement:
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a Pull Request
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+It helps increase visibility and motivates future improvements.
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👨‍💻 Author
+
+**Krishna Kumar**
+
+B.Tech (Electronics & Communication Engineering(ECE) with minor in AI/ML)
+
+Backend Developer | Machine Learning Enthusiast | Software Engineer
+
+GitHub:
+https://github.com/krish8986
+
+LinkedIn:
+https://www.linkedin.com/in/krishna-kumar-deve/
+
+---
+
+## ⭐ If you like this project, don't forget to star the repository!
