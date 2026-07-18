@@ -22,7 +22,11 @@ Unlike traditional academic ML projects, this project follows a **production-ins
 - ⚡ FastAPI REST Backend
 - 🎨 Modern Streamlit Dashboard
 - 📊 Loan Approval Probability
-- 📄 PDF Decision Report
+- 📄 Explainable PDF Report
+- 🧠 SHAP Explainability
+- 📊 Feature Importance Visualization
+- ✅ Top Positive Decision Factors
+- ⚠️ Top Negative Risk Factors
 - ✅ Input Validation
 - 🔍 Health Monitoring
 - 🔄 End-to-End API Communication
@@ -299,7 +303,21 @@ POST /predict
 {
   "prediction": "Approved",
   "approval_probability": 0.9987,
-  "rejection_probability": 0.0013
+  "rejection_probability": 0.0013,
+  "top_positive": [
+    {
+      "feature": "CIBIL Score",
+      "impact": 1.82,
+      "direction": "positive"
+    }
+  ],
+  "top_negative": [
+    {
+      "feature": "Active Loans",
+      "impact": -0.46,
+      "direction": "negative"
+    }
+  ]
 }
 ```
 
@@ -426,8 +444,11 @@ The application returns:
 - ✅ Loan Decision
 - ✅ Approval Probability
 - ✅ Rejection Probability
-- ✅ Downloadable PDF Report
-- ✅ API Status Indicator
+- ✅ SHAP Explainability
+- ✅ Top Positive Factors
+- ✅ Top Negative Factors
+- ✅ Feature Importance Chart
+- ✅ Explainable PDF Report
 
 ---
 
@@ -481,23 +502,26 @@ The project will continue evolving with production-grade Machine Learning and AI
 - API Integration
 
 ---
-
-## Phase 2 🚧 (In Progress)
+## Phase 2 ✅ (Completed)
 
 - SHAP Explainability
 - Feature Importance Visualization
+- Top Positive Factors
+- Top Negative Factors
 - Prediction Reasoning
-- Decision Waterfall Charts
-
+- AI Explainability Dashboard
+- Explainable PDF Reports
 ---
 
-## Phase 3 🔜
+## Phase 3 🚀
 
-- Retrieval-Augmented Generation (RAG)
-- LangChain Integration
-- ChromaDB Vector Database
+- AI Credit Officer (RAG Assistant)
+- Credit Policy Knowledge Base
+- FAISS / ChromaDB Vector Search
 - Groq LLM Integration
-- Credit Policy Knowledge Assistant
+- Natural Language Decision Explanation
+- Loan Improvement Recommendations
+- Conversational AI Assistant
 
 ---
 
@@ -514,37 +538,30 @@ The project will continue evolving with production-grade Machine Learning and AI
 
 # 📈 Future Architecture
 
-```mermaid
-flowchart LR
+User
+   │
+   ▼
+Streamlit Dashboard
+   │
+   ▼
+FastAPI Backend
+   │
+   ▼
+ML Pipeline
+   │
+   ▼
+SHAP Explainability
+   │
+   ├────────► Dashboard
+   │
+   └────────► RAG Assistant
+                 │
+                 ▼
+        Knowledge Base
+                 │
+                 ▼
+           Groq LLM
 
-    U([👤 User])
-
-    S["🖥️ Streamlit Dashboard"]
-
-    API["⚡ FastAPI Backend"]
-
-    ML["🧠 ML Pipeline"]
-
-    SHAP["📊 SHAP Explainability"]
-
-    RAG["🤖 AI Knowledge Assistant"]
-
-    LC["LangChain"]
-
-    DB["ChromaDB"]
-
-    LLM["Groq LLM"]
-
-    U --> S
-    S --> API
-    API --> ML
-    ML --> SHAP
-
-    API --> RAG
-    RAG --> LC
-    LC --> DB
-    LC --> LLM
-```
 ---
 
 # 💡 Engineering Highlights
@@ -569,6 +586,9 @@ This project demonstrates practical software engineering concepts beyond traditi
 - OneHotEncoder
 - Model Serialization
 - Probability Prediction
+- SHAP Explainability
+- Explainable AI (XAI)
+- Feature Attribution
 
 ---
 
@@ -607,6 +627,7 @@ This project demonstrates practical software engineering concepts beyond traditi
 - Software Architecture
 - Git
 - GitHub
+- Explainable AI (SHAP)
 
 ---
 
@@ -653,6 +674,10 @@ This repository can be used to discuss:
 - How would Docker improve deployment?
 - How would SHAP explain predictions?
 - How would a RAG assistant improve the system?
+- Why SHAP instead of LIME?
+- How does TreeExplainer work?
+- How are feature contributions calculated?
+- How do you explain ML predictions to non-technical users?
 
 ---
 
