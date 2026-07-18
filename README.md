@@ -1,4 +1,12 @@
-# 🚀 Credit Underwriting Dashboard
+<p align="center">
+  <img src="docs/images/banner.png" alt="AI Credit Underwriting Platform Banner" width="100%">
+</p>
+
+<h1 align="center">🚀 AI Credit Underwriting Platform</h1>
+
+<p align="center">
+Production Machine Learning • FastAPI • Streamlit • REST API
+</p>                                                  # 🚀 Credit Underwriting Dashboard
 
 ### Production-Ready AI Credit Risk Assessment Platform
 
@@ -24,29 +32,46 @@ Unlike traditional academic ML projects, this project follows a **production-ins
 
 # 🏛 System Architecture
 
-```text
-                   User
-                     │
-                     ▼
-        Streamlit Dashboard (Frontend)
-                     │
-             HTTP POST /predict
-                     │
-                     ▼
-            FastAPI Prediction API
-                     │
-                     ▼
-      sklearn Production Pipeline
-                     │
-     ┌───────────────┴───────────────┐
-     ▼                               ▼
-ColumnTransformer          GradientBoostingClassifier
-     │
-     ▼
-OneHotEncoder
-     │
-     ▼
- Loan Approval Prediction
+```mermaid
+flowchart TD
+
+    U([👤 User])
+
+    S["🖥️ Streamlit Dashboard
+    • Applicant Information
+    • Employment Details
+    • Loan Details
+    • Financial Information
+    • Asset Information
+    • PDF Report Generation"]
+
+    F["⚡ FastAPI Backend
+    • GET /health
+    • POST /predict
+    • Request Validation
+    • JSON Response"]
+
+    P["🧠 Production ML Pipeline
+    • ColumnTransformer
+    • OneHotEncoder
+    • GradientBoostingClassifier"]
+
+    R["📊 Prediction Engine
+    • Approved / Rejected
+    • Approval Probability
+    • Rejection Probability"]
+
+    O["📄 Dashboard Output
+    • Decision Card
+    • Progress Bars
+    • Download PDF"]
+
+    U --> S
+    S -->|"HTTP POST /predict"| F
+    F --> P
+    P --> R
+    R --> S
+    S --> O
 ```
 
 ---
@@ -408,31 +433,35 @@ The application returns:
 
 # 📸 Screenshots
 
-> Replace the placeholders below after capturing screenshots.
+## Dashboard
 
-### Dashboard
+<p align="center">
+<img src="docs/images/dashboard.png" width="100%">
+</p>
 
-```
-docs/images/dashboard.png
-```
+---
 
-### Prediction Result
+## Prediction Result
 
-```
-docs/images/result.png
-```
+<p align="center">
+<img src="docs/images/prediction.png" width="100%">
+</p>
 
-### Swagger API
+---
 
-```
-docs/images/swagger.png
-```
+## Swagger API
 
-### PDF Report
+<p align="center">
+<img src="docs/images/swagger.png" width="100%">
+</p>
 
-```
-docs/images/pdf_report.png
-```
+---
+
+## PDF Report
+
+<p align="center">
+<img src="docs/images/pdf_report.png" width="100%">
+</p>
 
 ---
 
@@ -483,28 +512,39 @@ The project will continue evolving with production-grade Machine Learning and AI
 
 ---
 
-# 📈 Planned Architecture
+# 📈 Future Architecture
 
-```text
-                    User
-                      │
-                      ▼
-           Streamlit Dashboard
-                      │
-          ┌───────────┴───────────┐
-          ▼                       ▼
- Prediction API            Knowledge Assistant
-          │                       │
-          ▼                       ▼
-     FastAPI Backend         LangChain
-          │                       │
-          ▼                       ▼
- sklearn Pipeline            ChromaDB
-          │                       │
-          ▼                       ▼
- Gradient Boosting          Groq LLM
+```mermaid
+flowchart LR
+
+    U([👤 User])
+
+    S["🖥️ Streamlit Dashboard"]
+
+    API["⚡ FastAPI Backend"]
+
+    ML["🧠 ML Pipeline"]
+
+    SHAP["📊 SHAP Explainability"]
+
+    RAG["🤖 AI Knowledge Assistant"]
+
+    LC["LangChain"]
+
+    DB["ChromaDB"]
+
+    LLM["Groq LLM"]
+
+    U --> S
+    S --> API
+    API --> ML
+    ML --> SHAP
+
+    API --> RAG
+    RAG --> LC
+    LC --> DB
+    LC --> LLM
 ```
-
 ---
 
 # 💡 Engineering Highlights
@@ -647,9 +687,9 @@ This project is licensed under the MIT License.
 
 **Krishna Kumar**
 
-B.Tech (Electronics & Communication Engineering(ECE) with minor in AI/ML)
+B.Tech in Electronics & Communication Engineering (ECE) with a Minor in AI/ML
 
-Backend Developer | Machine Learning Enthusiast | Software Engineer
+Backend Developer • Machine Learning Engineer • AI Engineer
 
 GitHub:
 https://github.com/krish8986
