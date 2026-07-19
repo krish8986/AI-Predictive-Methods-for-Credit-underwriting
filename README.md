@@ -14,6 +14,8 @@
 
 ❤️ **Health Check:** https://ai-predictive-methods-for-credit.onrender.com/health
 
+🚀 **Frontend API:** https://ai-predictive-methods-for-credit-underwriting-dfqmcy7nmn2bczde.streamlit.app
+
 </p>
 
 ---
@@ -268,6 +270,7 @@ The dashboard continuously checks the FastAPI server using the `/health` endpoin
 - 🌐 Backend API: https://ai-predictive-methods-for-credit.onrender.com
 - 📘 Swagger Docs: https://ai-predictive-methods-for-credit.onrender.com/docs
 - ❤️ Health Check: https://ai-predictive-methods-for-credit.onrender.com/health
+- 🌐 Frontend API: https://ai-predictive-methods-for-credit-underwriting-dfqmcy7nmn2bczde.streamlit.app
 
 ---
 
