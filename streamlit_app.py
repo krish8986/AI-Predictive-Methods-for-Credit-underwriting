@@ -8,9 +8,23 @@ import matplotlib.pyplot as plt
 import requests
 import streamlit as st
 from fpdf import FPDF
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+API_BASE_URL = st.secrets.get("API_BASE_URL", os.getenv("https://ai-predictive-methods-for-credit.onrender.com"),).rstrip("/")
 
 
-API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
+session = requests.Session()
+
+retry = Retry(
+    total=3,
+    backoff_factor=1,
+    status_forcelist=[500, 502, 503, 504],
+)
+
+session.mount("https://", HTTPAdapter(max_retries=retry))
+session.mount("http://", HTTPAdapter(max_retries=retry))
+
 FONT_PATH = Path(__file__).resolve().parent / "FreeSerif.ttf"
 
 
@@ -24,14 +38,14 @@ st.set_page_config(
 
 def get_api_health() -> bool:
     try:
-        response = requests.get(f"{API_BASE_URL}/health", timeout=2)
+        response = session.get(f"{API_BASE_URL}/health", timeout=2)
         return response.ok and response.json().get("model_loaded", False)
     except requests.RequestException:
         return False
 
 
 def request_prediction(payload: Dict[str, Any]) -> Dict[str, Any]:
-    response = requests.post(f"{API_BASE_URL}/predict", json=payload, timeout=15)
+    response = session.post(f"{API_BASE_URL}/predict", json=payload, timeout=15)
     response.raise_for_status()
     result = response.json()
     required_fields = {
@@ -47,7 +61,7 @@ def request_prediction(payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def ask_ai(question: str) -> Dict[str, Any]:
-    response = requests.post(
+    response = session.post(
         f"{API_BASE_URL}/ask",
         json={"question": question},
         timeout=60,
@@ -454,4 +468,4 @@ Impact: **{item['impact']:.4f}**
                             for source in sources:
                                 st.markdown(f"- {source}")
                     except Exception as error:
-                        st.error(error)
+                        st.error(f"AI Assistant Error: {error}")
