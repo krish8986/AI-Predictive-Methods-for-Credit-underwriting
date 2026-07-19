@@ -46,6 +46,16 @@ def request_prediction(payload: Dict[str, Any]) -> Dict[str, Any]:
     return result
 
 
+def ask_ai(question: str) -> Dict[str, Any]:
+    response = requests.post(
+        f"{API_BASE_URL}/ask",
+        json={"question": question},
+        timeout=60,
+    )
+    response.raise_for_status()
+    return response.json()
+
+
 def create_pdf_report(
     applicant: Dict[str, Any], payload: Dict[str, Any], result: Dict[str, Any]
 ) -> bytes:
@@ -120,8 +130,7 @@ def create_pdf_report(
     for label, value in payload.items():
         pdf.cell(0, 6, txt=f"{label.replace('_', ' ').title()}: {value}", ln=True)
 
-    return pdf.output(dest="S").encode("latin1")
-    # return pdf_output
+    return bytes(pdf.output(dest="S"))
 
 
 def clamp_percentage(value: float) -> int:
@@ -152,7 +161,6 @@ def show_feature_importance(result):
     ax.axvline(0, color="black", linewidth=1)
     ax.set_xlabel("SHAP Impact")
     ax.set_title("Top Factors Influencing Prediction")
-    ax.set_title("Feature Importance")
     st.pyplot(fig)
     plt.close(fig)
 
@@ -423,3 +431,27 @@ Impact: **{item['impact']:.4f}**
             mime="application/pdf",
             use_container_width=True,
         )
+
+        st.divider()
+        st.header("🤖 AI Credit Assistant")
+
+        question = st.text_area(
+            "Ask any question about credit underwriting, RBI guidelines, or loan policies",
+            height=120,
+        )
+
+        if st.button("Ask AI", use_container_width=True):
+            if question.strip():
+                with st.spinner("Thinking..."):
+                    try:
+                        ai_result = ask_ai(question)
+                        st.success("Answer")
+                        st.write(ai_result["answer"])
+
+                        sources = ai_result.get("sources", [])
+                        if sources:
+                            st.markdown("### 📚 Sources")
+                            for source in sources:
+                                st.markdown(f"- {source}")
+                    except Exception as error:
+                        st.error(error)

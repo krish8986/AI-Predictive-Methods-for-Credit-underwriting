@@ -5,8 +5,8 @@
 <h1 align="center">🚀 AI Credit Underwriting Platform</h1>
 
 <p align="center">
-Production Machine Learning • FastAPI • Streamlit • REST API
-</p>                                                  # 🚀 Credit Underwriting Dashboard
+Production Machine Learning • Explainable AI (SHAP) • RAG • FastAPI • Streamlit • Groq LLM • FAISS
+</p>
 
 ### Production-Ready AI Credit Risk Assessment Platform
 
@@ -24,6 +24,12 @@ Unlike traditional academic ML projects, this project follows a **production-ins
 - 📊 Loan Approval Probability
 - 📄 Explainable PDF Report
 - 🧠 SHAP Explainability
+- 🤖 AI Credit Assistant
+- 📚 Retrieval-Augmented Generation (RAG)
+- 🔍 FAISS Vector Search
+- 🧠 Groq LLM Integration
+- 📄 Source Citations
+- 💬 Prediction-aware AI Responses
 - 📊 Feature Importance Visualization
 - ✅ Top Positive Decision Factors
 - ⚠️ Top Negative Risk Factors
@@ -41,40 +47,40 @@ flowchart TD
 
     U([👤 User])
 
-    S["🖥️ Streamlit Dashboard
-    • Applicant Information
-    • Employment Details
-    • Loan Details
-    • Financial Information
-    • Asset Information
-    • PDF Report Generation"]
+    S["🖥️ Streamlit Dashboard"]
 
-    F["⚡ FastAPI Backend
-    • GET /health
-    • POST /predict
-    • Request Validation
-    • JSON Response"]
+    F["⚡ FastAPI Backend"]
 
-    P["🧠 Production ML Pipeline
-    • ColumnTransformer
-    • OneHotEncoder
-    • GradientBoostingClassifier"]
+    P["🧠 ML Pipeline"]
 
-    R["📊 Prediction Engine
-    • Approved / Rejected
-    • Approval Probability
-    • Rejection Probability"]
+    R["📊 Prediction"]
 
-    O["📄 Dashboard Output
-    • Decision Card
-    • Progress Bars
-    • Download PDF"]
+    X["📈 SHAP Explainability"]
+
+    AI["🤖 AI Credit Assistant"]
+
+    KB["📚 Knowledge Base"]
+
+    V["🔍 FAISS Retriever"]
+
+    G["🧠 Groq LLM"]
+
+    O["📄 Dashboard Output"]
 
     U --> S
-    S -->|"HTTP POST /predict"| F
+    S --> F
     F --> P
     P --> R
-    R --> S
+    R --> X
+    X --> S
+
+    S --> AI
+    AI --> KB
+    KB --> V
+    V --> G
+    G --> AI
+    AI --> S
+
     S --> O
 ```
 
@@ -128,6 +134,35 @@ The dashboard displays
 
 Generate a downloadable underwriting report containing:
 
+- Applicant Details
+- Prediction
+- Approval Probability
+- Rejection Probability
+- SHAP Explainability
+
+---
+
+## 🤖 AI Credit Assistant
+
+The platform includes a Retrieval-Augmented Generation (RAG) powered AI assistant capable of answering credit underwriting questions.
+
+Features:
+
+- Loan approval reasoning
+- RBI guideline queries
+- Credit policy explanation
+- Required loan documents
+- Prediction-aware responses
+- Source citations
+
+Powered by:
+
+- FAISS
+- Sentence Transformers
+- Groq LLM
+
+Generate a downloadable underwriting report containing:
+
 - Applicant details
 - Prediction
 - Probabilities
@@ -175,6 +210,9 @@ The dashboard continuously checks the FastAPI server using the `/health` endpoin
 | Data Processing | pandas, NumPy |
 | Model Persistence | joblib |
 | Reporting | FPDF2 |
+| Explainable AI | SHAP |
+| RAG | FAISS, Sentence Transformers |
+| LLM | Groq |
 | Communication | REST API, Requests |
 | Language | Python |
 
@@ -192,8 +230,27 @@ AI-Predictive-Methods-for-Credit-underwriting/
 │   ├── predictor.py           # Prediction logic
 │   └── schemas.py             # Request/Response models
 │
+├── rag/
+│   ├── chunker.py
+│   ├── embeddings.py
+│   ├── retriever.py
+│   ├── vector_store.py
+│   ├── groq_generator.py
+│
+├── knowledge_base/
+│   ├── bank_credit_policy.md
+│   ├── loan_faq.md
+│   ├── rbi_guidelines.md    
 ├── models/
 │   └── credit_underwriting_pipeline.pkl
+│
+├── docs/
+│   └── images/
+│       ├── dashboard.png
+│       ├── prediction_shap.png
+│       ├── ai_assistant.png
+│       ├── swagger.png
+│       └── pdf_report.png
 │
 ├── streamlit_app.py           # Streamlit dashboard
 ├── model_training.py          # Model training pipeline
@@ -204,6 +261,7 @@ AI-Predictive-Methods-for-Credit-underwriting/
 │
 └── legacy/
     └── best_features_model.pkl   # Legacy model artifact
+
 ```
 
 > **Note:** `best_features_model.pkl` is retained only for historical reference. All predictions are served using `credit_underwriting_pipeline.pkl`.
@@ -240,11 +298,33 @@ Streamlit Dashboard
 Display Decision
    │
 Generate PDF Report
+   |
+   ▼
+Ask AI Assistant
+   │
+   ▼
+Retrieve Relevant Documents
+   │
+   ▼
+FAISS Search
+   │
+   ▼
+Groq LLM
+   │
+   ▼
+AI Response with Sources
 ```
 
 ---
 
 # 🔌 REST API
+
+## AI Assistant Endpoint
+
+### Request
+
+```http
+POST /ask
 
 ## Health Endpoint
 
@@ -449,6 +529,12 @@ The application returns:
 - ✅ Top Negative Factors
 - ✅ Feature Importance Chart
 - ✅ Explainable PDF Report
+- ✅ AI Credit Assistant
+- ✅ Source Citations
+- ✅ Prediction-aware AI Explanation
+- ✅ Source Documents
+- ✅ RAG Responses
+- ✅ AI Reasoning
 
 ---
 
@@ -465,7 +551,7 @@ The application returns:
 ## Prediction Result
 
 <p align="center">
-<img src="docs/images/prediction.png" width="100%">
+<img src="docs/images/prediction_shap.png" width="100%">
 </p>
 
 ---
@@ -485,6 +571,15 @@ The application returns:
 </p>
 
 ---
+
+## AI Credit Assistant
+
+<p align="center">
+<img src="docs/images/ai_assistant.png" width="100%">
+</p>
+
+---
+
 
 # 🚀 Future Roadmap
 
@@ -513,15 +608,15 @@ The project will continue evolving with production-grade Machine Learning and AI
 - Explainable PDF Reports
 ---
 
-## Phase 3 🚀
+## Phase 3 ✅ (Completed)
 
-- AI Credit Officer (RAG Assistant)
+- AI Credit Assistant
 - Credit Policy Knowledge Base
-- FAISS / ChromaDB Vector Search
+- FAISS Vector Search
 - Groq LLM Integration
 - Natural Language Decision Explanation
-- Loan Improvement Recommendations
-- Conversational AI Assistant
+- Prediction-aware AI
+- Source Citations
 
 ---
 
@@ -557,10 +652,22 @@ SHAP Explainability
    └────────► RAG Assistant
                  │
                  ▼
-        Knowledge Base
-                 │
-                 ▼
-           Groq LLM
+           Knowledge Base
+                |
+                ▼
+             Chunking
+                |
+                ▼
+            Embeddings
+                |
+                ▼
+              FAISS
+                |
+                ▼
+             Retriever
+                |
+                ▼
+               Groq
 
 ---
 
@@ -589,6 +696,10 @@ This project demonstrates practical software engineering concepts beyond traditi
 - SHAP Explainability
 - Explainable AI (XAI)
 - Feature Attribution
+- Retrieval-Augmented Generation (RAG)
+- Vector Search (FAISS)
+- Large Language Models (Groq)
+- Prompt Engineering
 
 ---
 
@@ -628,6 +739,12 @@ This project demonstrates practical software engineering concepts beyond traditi
 - Git
 - GitHub
 - Explainable AI (SHAP)
+- RAG
+- FAISS
+- Vector Databases
+- Sentence Transformers
+- Groq API
+- Prompt Engineering
 
 ---
 
@@ -657,6 +774,10 @@ This project demonstrates experience in:
 - Dashboard Development
 - Software Design
 - Data Processing
+- Retrieval-Augmented Generation (RAG)
+- Explainable AI
+- Vector Search
+- LLM Integration
 
 ---
 
@@ -678,7 +799,12 @@ This repository can be used to discuss:
 - How does TreeExplainer work?
 - How are feature contributions calculated?
 - How do you explain ML predictions to non-technical users?
-
+- Why did you choose FAISS?
+- Why Groq instead of OpenAI?
+- How does Retrieval-Augmented Generation work?
+- Why use SHAP with Gradient Boosting?
+- How is prediction context passed to the AI Assistant?
+- How do source citations improve trust?
 ---
 
 # 🤝 Contributions
