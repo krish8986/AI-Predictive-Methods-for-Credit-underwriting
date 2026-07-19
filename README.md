@@ -5,7 +5,42 @@
 <h1 align="center">🚀 AI Credit Underwriting Platform</h1>
 
 <p align="center">
+
+## 🌐 Live Demo
+
+🚀 **Backend API:** https://ai-predictive-methods-for-credit.onrender.com
+
+📘 **Swagger API Docs:** https://ai-predictive-methods-for-credit.onrender.com/docs
+
+❤️ **Health Check:** https://ai-predictive-methods-for-credit.onrender.com/health
+
+</p>
+
+---
+
 Production Machine Learning • Explainable AI (SHAP) • RAG • FastAPI • Streamlit • Groq LLM • FAISS
+</p>
+
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+
+![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-009688?logo=fastapi)
+
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit)
+
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-ML-orange?logo=scikitlearn)
+
+![SHAP](https://img.shields.io/badge/Explainable_AI-SHAP-purple)
+
+![FAISS](https://img.shields.io/badge/RAG-FAISS-blue)
+
+![Groq](https://img.shields.io/badge/LLM-Groq-black)
+
+![Render](https://img.shields.io/badge/Deployment-Render-46E3B7?logo=render)
+
+![License](https://img.shields.io/badge/License-MIT-green)
+
 </p>
 
 ### Production-Ready AI Credit Risk Assessment Platform
@@ -215,6 +250,24 @@ The dashboard continuously checks the FastAPI server using the `/health` endpoin
 | LLM | Groq |
 | Communication | REST API, Requests |
 | Language | Python |
+
+---
+
+# 🚀 Deployment
+
+| Service | Status |
+|----------|--------|
+| Backend | ✅ Render |
+| REST API | ✅ FastAPI |
+| API Documentation | ✅ Swagger UI |
+| ML Model | ✅ Production Ready |
+| Health Monitoring | ✅ Available |
+
+### Live URLs
+
+- 🌐 Backend API: https://ai-predictive-methods-for-credit.onrender.com
+- 📘 Swagger Docs: https://ai-predictive-methods-for-credit.onrender.com/docs
+- ❤️ Health Check: https://ai-predictive-methods-for-credit.onrender.com/health
 
 ---
 
@@ -748,6 +801,28 @@ This project demonstrates practical software engineering concepts beyond traditi
 
 ---
 
+# .env.example
+
+- GROQ_API_KEY=your_groq_api_key
+
+- MODEL_PATH=models/credit_underwriting_pipeline.pkl
+
+- MODEL_PATH=models/credit_underwriting_pipeline.pkl
+
+- FAISS_INDEX_PATH=rag/index.faiss
+
+- EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-
+
+---
+
+# .gitignore
+
+.env
+__pycache__/
+.venv/
+*.pyc
+*.pkl
+
 # 📚 Key Learnings
 
 During this project I learned how to:
@@ -836,18 +911,26 @@ This project is licensed under the MIT License.
 
 # 👨‍💻 Author
 
-**Krishna Kumar**
+## Krishna Kumar
 
-B.Tech in Electronics & Communication Engineering (ECE) with a Minor in AI/ML
+B.Tech Electronics & Communication Engineering (Minor in AI/ML)
 
-Backend Developer • Machine Learning Engineer • AI Engineer
+Backend Developer • Machine Learning Engineer • AI Enthusiast
 
-GitHub:
-https://github.com/krish8986
+### Connect with me
 
-LinkedIn:
-https://www.linkedin.com/in/krishna-kumar-deve/
+- GitHub: https://github.com/krish8986
+- LinkedIn: https://www.linkedin.com/in/krishna-kumar-deve/
 
----
+If you found this project useful, please consider giving it a ⭐.
 
-## ⭐ If you like this project, don't forget to star the repository!
+## ⭐ Support
+
+If you found this project useful:
+
+- ⭐ Star this repository
+- 🍴 Fork it
+- 🛠️ Contribute improvements
+- 💬 Share feedback
+
+Your support helps improve the project and motivates future development.
