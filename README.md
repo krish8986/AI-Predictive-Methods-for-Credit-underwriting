@@ -237,7 +237,7 @@ AI-Predictive-Methods-for-Credit-underwriting/
 │   ├── vector_store.py
 │   ├── groq_generator.py
 │
-├── knowledge_base/
+├── knowledge/
 │   ├── bank_credit_policy.md
 │   ├── loan_faq.md
 │   ├── rbi_guidelines.md    
