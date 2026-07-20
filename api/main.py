@@ -100,79 +100,52 @@ class ChatResponse(BaseModel):
     sources: list[str]
 
 
-# @app.post("/ask", response_model=ChatResponse)
-# def ask(
-    # request: ChatRequest,
-    # http_request: Request,
-# ):
-# 
-    # retriever = http_request.app.state.retriever
-# 
-    # generator = http_request.app.state.generator
-# 
-    # context = retriever.retrieve(
-        # request.question
-    # )
-    # enhanced_question = request.question
-# 
-    # if hasattr(app.state, "last_prediction"):
-        # pred = app.state.last_prediction
-# 
-        # enhanced_question = f"""
-    # Prediction Result:
-    # {pred['prediction']}
-# 
-    # Approval Probability:
-    # {pred['approval_probability']:.2%}
-# 
-    # Top Positive Factors:
-    # {', '.join(x['feature'] for x in pred['top_positive'])}
-# 
-    # Top Negative Factors:
-    # {', '.join(x['feature'] for x in pred['top_negative'])}
-# 
-    # User Question:
-    # {request.question}
-    # """
-# 
-    # answer = generator.generate(
-        # enhanced_question,
-        # context,
-    # )
-    # sources = list(
-        # {
-            # item.record.metadata.get("source", "Unknown")
-            # for item in context
-        # }
-    # )    
-    # return ChatResponse(
-        # answer=answer,
-        # sources=sources,
-    # )
-# 
-
 @app.post("/ask", response_model=ChatResponse)
-def ask(request: ChatRequest, http_request: Request):
-
-    print("STEP 1")
+def ask(
+    request: ChatRequest,
+    http_request: Request,
+):
 
     retriever = http_request.app.state.retriever
 
-    print("STEP 2")
-
     generator = http_request.app.state.generator
 
-    print("STEP 3")
+    context = retriever.retrieve(
+        request.question
+    )
+    enhanced_question = request.question
 
-    context = retriever.retrieve(request.question)
+    if hasattr(app.state, "last_prediction"):
+        pred = app.state.last_prediction
 
-    print("STEP 4")
+        enhanced_question = f"""
+    Prediction Result:
+    {pred['prediction']}
 
-    answer = generator.generate(request.question, context)
+    Approval Probability:
+    {pred['approval_probability']:.2%}
 
-    print("STEP 5")
+    Top Positive Factors:
+    {', '.join(x['feature'] for x in pred['top_positive'])}
 
+    Top Negative Factors:
+    {', '.join(x['feature'] for x in pred['top_negative'])}
+
+    User Question:
+    {request.question}
+    """
+
+    answer = generator.generate(
+        enhanced_question,
+        context,
+    )
+    sources = list(
+        {
+            item.record.metadata.get("source", "Unknown")
+            for item in context
+        }
+    )    
     return ChatResponse(
         answer=answer,
-        sources=[]
+        sources=sources,
     )
