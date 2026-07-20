@@ -14,7 +14,7 @@ class GroqResponseGenerator(ResponseGenerator):
     def __init__(
         self,
         api_key: str | None = None,
-        model: str = "llama-3.3-70b-versatile",
+        model: str = "llama-3.1-8b-instant",
     ):
         self.client = Groq(
             api_key=api_key or os.getenv("GROQ_API_KEY")
