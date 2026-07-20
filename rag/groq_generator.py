@@ -56,6 +56,9 @@ Answer:
 """
 
         try:
+            print("=== GROQ REQUEST START ===")
+            print(f"Model: {self.model}")
+
             response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
@@ -72,8 +75,19 @@ Answer:
                 timeout=30,
             )
 
+            print("=== GROQ REQUEST SUCCESS ===")
+
+            if (
+                not response.choices
+                or response.choices[0].message.content is None
+            ):
+                raise RuntimeError("Groq returned an empty response.")
+
             return response.choices[0].message.content.strip()
 
         except Exception as e:
-            print(f"Groq Error: {e}")
+            print("========== GROQ ERROR ==========")
+            print(type(e).__name__)
+            print(str(e))
+            print("================================")
             raise
