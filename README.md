@@ -2,275 +2,278 @@
   <img src="docs/images/banner.png" alt="AI Credit Underwriting Platform Banner" width="100%">
 </p>
 
-<h1 align="center">🚀 AI Credit Underwriting Platform</h1>
+<h1 align="center">
+🚀 AI Credit Underwriting Platform
+</h1>
 
 <p align="center">
 
-## 🌐 Live Demo
+🚀 <strong>Production-Ready AI Credit Underwriting Platform</strong>
 
-🚀 **Backend API:** https://ai-predictive-methods-for-credit.onrender.com
+Predict loan approvals using Machine Learning with transparent SHAP explanations,
+AI-powered credit assistance (RAG), FastAPI backend, Streamlit dashboard,
+and Dockerized deployment.
 
-📘 **Swagger API Docs:** https://ai-predictive-methods-for-credit.onrender.com/docs
-
-❤️ **Health Check:** https://ai-predictive-methods-for-credit.onrender.com/health
-
-🚀 **Frontend API:** https://ai-predictive-methods-for-credit-underwriting-dfqmcy7nmn2bczde.streamlit.app
-
-</p>
-
----
-
-Production Machine Learning • Explainable AI (SHAP) • RAG • FastAPI • Streamlit • Groq LLM • FAISS
 </p>
 
 <p align="center">
 
-![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+<a href="https://ai-predictive-methods-for-credit-underwriting-dfqmcy7nmn2bczde.streamlit.app">
+<img src="https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-red?style=for-the-badge">
+</a>
 
-![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-009688?logo=fastapi)
+<a href="https://ai-predictive-methods-for-credit.onrender.com/docs">
+<img src="https://img.shields.io/badge/API-Swagger-green?style=for-the-badge">
+</a>
 
-![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit)
-
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-ML-orange?logo=scikitlearn)
-
-![SHAP](https://img.shields.io/badge/Explainable_AI-SHAP-purple)
-
-![FAISS](https://img.shields.io/badge/RAG-FAISS-blue)
-
-![Groq](https://img.shields.io/badge/LLM-Groq-black)
-
-![Render](https://img.shields.io/badge/Deployment-Render-46E3B7?logo=render)
-
-![License](https://img.shields.io/badge/License-MIT-green)
+<a href="https://ai-predictive-methods-for-credit.onrender.com/health">
+<img src="https://img.shields.io/badge/Health-Online-success?style=for-the-badge">
+</a>
 
 </p>
 
-### Production-Ready AI Credit Risk Assessment Platform
+---
 
-A production-style Machine Learning application that predicts whether a loan application should be **Approved** or **Rejected** using a trained **Gradient Boosting Model** deployed behind a **FastAPI REST API** and consumed by a modern **Streamlit Dashboard**.
+<p align="center">
+<b>Production Machine Learning • Explainable AI • RAG • FastAPI • Streamlit • Docker</b>
+</p>
 
-Unlike traditional academic ML projects, this project follows a **production-inspired architecture** where the frontend, backend, and ML pipeline are cleanly separated.
+<p align="center">
+
+[![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-009688?logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit)](https://streamlit.io/)
+[![Scikit-Learn](https://img.shields.io/badge/scikit--learn-ML-orange?logo=scikitlearn)](https://scikit-learn.org/)
+[![SHAP](https://img.shields.io/badge/Explainable_AI-SHAP-purple)](https://shap.readthedocs.io/)
+[![FAISS](https://img.shields.io/badge/RAG-FAISS-blue)](https://github.com/facebookresearch/faiss)
+[![Groq](https://img.shields.io/badge/LLM-Groq-black)](https://groq.com/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker)](https://www.docker.com/)
+[![Render](https://img.shields.io/badge/Backend-Render-46E3B7?logo=render)]
+[![License](https://img.shields.io/badge/License-MIT-green)]
+
+</p>
 
 ---
 
-## ✨ Key Highlights
+# 🌐 Live Demo
 
-- 🧠 Production Machine Learning Pipeline
-- ⚡ FastAPI REST Backend
-- 🎨 Modern Streamlit Dashboard
-- 📊 Loan Approval Probability
-- 📄 Explainable PDF Report
-- 🧠 SHAP Explainability
-- 🤖 AI Credit Assistant
-- 📚 Retrieval-Augmented Generation (RAG)
-- 🔍 FAISS Vector Search
-- 🧠 Groq LLM Integration
-- 📄 Source Citations
-- 💬 Prediction-aware AI Responses
-- 📊 Feature Importance Visualization
-- ✅ Top Positive Decision Factors
-- ⚠️ Top Negative Risk Factors
-- ✅ Input Validation
-- 🔍 Health Monitoring
-- 🔄 End-to-End API Communication
-- 🏗 Production-Oriented Architecture
+### 🚀 Streamlit Dashboard
+
+https://ai-predictive-methods-for-credit-underwriting-dfqmcy7nmn2bczde.streamlit.app
+
+### ⚡ FastAPI Health Endpoint
+
+https://ai-predictive-methods-for-credit.onrender.com/health
+
+### 📄 Swagger API Documentation
+
+https://ai-predictive-methods-for-credit.onrender.com/docs
 
 ---
 
-# 🏛 System Architecture
+# 📑 Table of Contents
 
-```mermaid
-flowchart TD
+- [Live Demo](#-live-demo)
+- [Project Overview](#-project-overview)
+- [Key Features](#-key-features)
+- [System Architecture](#️-system-architecture)
+- [Tech Stack](#️-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Docker Deployment](#-docker-deployment)
+- [Run Without Docker](#️-run-without-docker)
+- [REST API Endpoints](#-rest-api-endpoints)
+- [Machine Learning Pipeline](#-machine-learning-pipeline)
+- [Explainable AI](#-explainable-ai-shap)
+- [RAG Workflow](#-retrieval-augmented-generation-rag)
+- [Screenshots](#-screenshots)
+- [Deployment](#-deployment)
+- [Engineering Highlights](#-engineering-highlights)
+- [Resume Highlights](#-resume-highlights)
+- [Interview Topics](#-interview-discussion-topics)
+- [Author](#-author)
 
-    U([👤 User])
+---
+# 📌 Project Overview
 
-    S["🖥️ Streamlit Dashboard"]
+AI Credit Underwriting Platform is a **production-inspired Machine Learning application** that predicts whether a loan application should be **Approved** or **Rejected** using a trained **Gradient Boosting Classifier**.
 
-    F["⚡ FastAPI Backend"]
+Unlike traditional academic ML projects, this system follows a modular software architecture by separating:
 
-    P["🧠 ML Pipeline"]
+- Frontend (Streamlit)
+- Backend (FastAPI REST API)
+- Machine Learning Pipeline
+- Explainable AI (SHAP)
+- Retrieval-Augmented Generation (RAG)
+- Dockerized Deployment
 
-    R["📊 Prediction"]
-
-    X["📈 SHAP Explainability"]
-
-    AI["🤖 AI Credit Assistant"]
-
-    KB["📚 Knowledge Base"]
-
-    V["🔍 FAISS Retriever"]
-
-    G["🧠 Groq LLM"]
-
-    O["📄 Dashboard Output"]
-
-    U --> S
-    S --> F
-    F --> P
-    P --> R
-    R --> X
-    X --> S
-
-    S --> AI
-    AI --> KB
-    KB --> V
-    V --> G
-    G --> AI
-    AI --> S
-
-    S --> O
-```
+The application not only predicts loan approval but also explains every prediction using **SHAP Explainability**, generates downloadable **PDF underwriting reports**, and provides an **AI Credit Assistant** capable of answering domain-specific underwriting questions using a Retrieval-Augmented Generation pipeline powered by **FAISS** and **Groq LLM**.
 
 ---
 
-# 🌟 Features
+# ✨ Key Features
 
-## 🎯 Intelligent Credit Assessment
+## 🤖 Machine Learning
 
-Predicts whether a loan application should be approved using a trained Machine Learning model.
+- Production-ready Gradient Boosting Model
+- Serialized Scikit-Learn Pipeline
+- Probability Prediction
+- Feature Engineering
+- Consistent Training & Inference Pipeline
 
 ---
 
 ## ⚡ FastAPI Backend
 
-The prediction engine is exposed as a REST API.
-
-Endpoints:
-
-- `/health`
-- `/predict`
-
-This architecture allows multiple clients to consume the prediction service.
+- REST API
+- Swagger Documentation
+- Request Validation
+- Pydantic Schemas
+- Health Monitoring Endpoint
 
 ---
 
-## 🎨 Modern Dashboard
+## 🎨 Streamlit Dashboard
 
-The Streamlit application provides a clean dashboard with:
-
-- Applicant Information
-- Employment Details
-- Loan Details
-- Financial Information
-- Asset Information
+- Interactive UI
+- Modern Design
+- Real-time Predictions
+- User-friendly Forms
+- Dynamic Charts
 
 ---
 
-## 📈 Prediction Analytics
+## 📊 Explainable AI
 
-The dashboard displays
-
-- Approval Probability
-- Rejection Probability
-- Decision Status
-- Progress Indicators
+- SHAP Explainability
+- Feature Importance
+- Top Positive Factors
+- Top Negative Factors
+- Decision Reasoning
 
 ---
 
-## 📄 PDF Report
+## 📄 PDF Report Generation
 
-Generate a downloadable underwriting report containing:
+Automatically generates an underwriting report containing:
 
 - Applicant Details
+- Loan Information
 - Prediction
 - Approval Probability
-- Rejection Probability
-- SHAP Explainability
+- SHAP Explanation
+- Feature Importance
 
 ---
 
 ## 🤖 AI Credit Assistant
 
-The platform includes a Retrieval-Augmented Generation (RAG) powered AI assistant capable of answering credit underwriting questions.
+Retrieval-Augmented Generation (RAG) powered chatbot capable of answering questions related to:
 
-Features:
-
-- Loan approval reasoning
-- RBI guideline queries
-- Credit policy explanation
-- Required loan documents
-- Prediction-aware responses
-- Source citations
+- RBI Guidelines
+- Credit Policies
+- Loan Documentation
+- Credit Underwriting
+- Loan Approval Reasons
+- Prediction-aware Responses
 
 Powered by:
 
-- FAISS
+- FAISS Vector Search
 - Sentence Transformers
 - Groq LLM
 
-Generate a downloadable underwriting report containing:
+---
 
-- Applicant details
-- Prediction
-- Probabilities
-- Submitted application
+## 🐳 Dockerized Deployment
+
+The entire application runs inside Docker containers using Docker Compose.
+
+Services:
+
+- FastAPI Backend
+- Streamlit Frontend
+
+Single command deployment:
+
+```bash
+docker compose up --build
+```
 
 ---
 
-## 🧩 Production ML Pipeline
+# 🏗️ System Architecture
 
-The project uses a serialized sklearn Pipeline containing
+```mermaid
+flowchart TD
 
-- ColumnTransformer
-- OneHotEncoder
-- GradientBoostingClassifier
+A[👤 User]
 
-This guarantees that training and inference use identical preprocessing.
+B[🎨 Streamlit Dashboard]
+
+C[⚡ FastAPI REST API]
+
+D[🧠 ML Pipeline]
+
+E[📈 Prediction]
+
+F[📊 SHAP Explainability]
+
+G[📄 PDF Report]
+
+H[🤖 AI Credit Assistant]
+
+I[📚 Knowledge Base]
+
+J[🔍 FAISS Retriever]
+
+K[🧠 Groq LLM]
+
+A --> B
+
+B --> C
+
+C --> D
+
+D --> E
+
+E --> F
+
+F --> G
+
+F --> B
+
+B --> H
+
+H --> I
+
+I --> J
+
+J --> K
+
+K --> H
+
+H --> B
+```
 
 ---
 
-## 🛡 Input Validation
-
-The dashboard validates
-
-- Email
-- Phone Number
-- Required Fields
-
-before sending requests to the API.
-
----
-
-## ❤️ Service Health Monitoring
-
-The dashboard continuously checks the FastAPI server using the `/health` endpoint before making prediction requests.
-
----
-
-# 🛠 Tech Stack
+# 🛠️ Tech Stack
 
 | Category | Technologies |
-|----------|--------------|
-| Frontend | Streamlit |
-| Backend | FastAPI, Uvicorn |
-| Machine Learning | scikit-learn |
-| Data Processing | pandas, NumPy |
-| Model Persistence | joblib |
-| Reporting | FPDF2 |
-| Explainable AI | SHAP |
-| RAG | FAISS, Sentence Transformers |
-| LLM | Groq |
-| Communication | REST API, Requests |
+|-----------|--------------|
 | Language | Python |
-
----
-
-# 🚀 Deployment
-
-| Service | Status |
-|----------|--------|
-| Backend | ✅ Render |
-| REST API | ✅ FastAPI |
-| API Documentation | ✅ Swagger UI |
-| ML Model | ✅ Production Ready |
-| Health Monitoring | ✅ Available |
-
-### Live URLs
-
-- 🌐 Backend API: https://ai-predictive-methods-for-credit.onrender.com
-- 📘 Swagger Docs: https://ai-predictive-methods-for-credit.onrender.com/docs
-- ❤️ Health Check: https://ai-predictive-methods-for-credit.onrender.com/health
-- 🌐 Frontend API: https://ai-predictive-methods-for-credit-underwriting-dfqmcy7nmn2bczde.streamlit.app
+| Backend | FastAPI, Uvicorn |
+| Frontend | Streamlit |
+| Machine Learning | Scikit-Learn |
+| Explainability | SHAP |
+| Data Processing | Pandas, NumPy |
+| Vector Database | FAISS |
+| Embeddings | Sentence Transformers |
+| LLM | Groq |
+| PDF Generation | FPDF2 |
+| Deployment | Docker, Docker Compose, Render |
+| API Testing | Swagger UI |
 
 ---
 
@@ -278,188 +281,44 @@ The dashboard continuously checks the FastAPI server using the `/health` endpoin
 
 ```text
 AI-Predictive-Methods-for-Credit-underwriting/
+
 │
 ├── api/
-│   ├── __init__.py
-│   ├── main.py                # FastAPI application
-│   ├── model_loader.py        # Loads production ML pipeline
-│   ├── predictor.py           # Prediction logic
-│   └── schemas.py             # Request/Response models
+│   ├── main.py
+│   ├── predictor.py
+│   ├── explain.py
+│   ├── model_loader.py
+│   └── schemas.py
 │
 ├── rag/
-│   ├── chunker.py
 │   ├── embeddings.py
 │   ├── retriever.py
 │   ├── vector_store.py
 │   ├── groq_generator.py
+│   └── loader.py
 │
 ├── knowledge/
-│   ├── bank_credit_policy.md
-│   ├── loan_faq.md
-│   ├── rbi_guidelines.md    
 ├── models/
-│   └── credit_underwriting_pipeline.pkl
-│
 ├── docs/
-│   └── images/
-│       ├── dashboard.png
-│       ├── prediction_shap.png
-│       ├── ai_assistant.png
-│       ├── swagger.png
-│       └── pdf_report.png
 │
-├── streamlit_app.py           # Streamlit dashboard
-├── model_training.py          # Model training pipeline
-├── credit_underwriting1.csv   # Training dataset
+├── docker/
+│   ├── Dockerfile.api
+│   └── Dockerfile.streamlit
+│
+├── tests/
+├── assets/
+├── notebooks/
+│
+├── docker-compose.yml
 ├── requirements.txt
-├── FreeSerif.ttf              # PDF report font
-├── README.md
-│
-└── legacy/
-    └── best_features_model.pkl   # Legacy model artifact
-
-```
-
-> **Note:** `best_features_model.pkl` is retained only for historical reference. All predictions are served using `credit_underwriting_pipeline.pkl`.
-
----
-
-# 🔄 Application Workflow
-
-```text
-User
-   │
-   ▼
-Fill Loan Application
-   │
-   ▼
-Streamlit Dashboard
-   │
-HTTP POST /predict
-   │
-   ▼
-FastAPI Backend
-   │
-Load Production Pipeline
-   │
-Preprocess Input
-   │
-Generate Prediction
-   │
-Return JSON Response
-   │
-   ▼
-Streamlit Dashboard
-   │
-Display Decision
-   │
-Generate PDF Report
-   |
-   ▼
-Ask AI Assistant
-   │
-   ▼
-Retrieve Relevant Documents
-   │
-   ▼
-FAISS Search
-   │
-   ▼
-Groq LLM
-   │
-   ▼
-AI Response with Sources
+├── requirements-api.txt
+├── streamlit_app.py
+└── README.md
 ```
 
 ---
 
-# 🔌 REST API
-
-## AI Assistant Endpoint
-
-### Request
-
-```http
-POST /ask
-
-## Health Endpoint
-
-### Request
-
-```http
-GET /health
-```
-
-### Response
-
-```json
-{
-    "status": "ok",
-    "model_loaded": true
-}
-```
-
----
-
-## Prediction Endpoint
-
-### Request
-
-```http
-POST /predict
-```
-
-### Request Body
-
-```json
-{
-  "applicant_age": 59,
-  "gender": "Women",
-  "marital_status": "Single",
-  "employee_status": "employed",
-  "residence_type": "MORTGAGE",
-  "loan_purpose": "Vehicle",
-  "income_annum": 9600000,
-  "loan_amount": 2400000,
-  "loan_term": 12,
-  "cibil_score": 778,
-  "residential_assets_value": 17600000,
-  "commercial_assets_value": 22700000,
-  "luxury_assets_value": 8000000,
-  "bank_asset_value": 29900000,
-  "loan_interest": 6.54,
-  "loan_percent_income": 8,
-  "active_loans": 3
-}
-```
-
-### Response
-
-```json
-{
-  "prediction": "Approved",
-  "approval_probability": 0.9987,
-  "rejection_probability": 0.0013,
-  "top_positive": [
-    {
-      "feature": "CIBIL Score",
-      "impact": 1.82,
-      "direction": "positive"
-    }
-  ],
-  "top_negative": [
-    {
-      "feature": "Active Loans",
-      "impact": -0.46,
-      "direction": "negative"
-    }
-  ]
-}
-```
-
----
-
-# ⚙️ Installation
+# 🚀 Installation
 
 Clone the repository
 
@@ -474,8 +333,6 @@ Create a virtual environment
 ```bash
 python -m venv .venv
 ```
-
-Activate it
 
 ### Windows
 
@@ -493,41 +350,32 @@ Install dependencies
 
 ```bash
 pip install -r requirements.txt
+pip install -r requirements-api.txt
 ```
 
 ---
 
-# ▶️ Running the Project
+# 🐳 Docker Deployment
 
-## Step 1 — Start FastAPI
-
-```bash
-python -m uvicorn api.main:app --reload
-```
-
-FastAPI will be available at
-
-```
-http://127.0.0.1:8000
-```
-
-Swagger Documentation
-
-```
-http://127.0.0.1:8000/docs
-```
-
----
-
-## Step 2 — Start Streamlit
-
-Open another terminal
+Build and start the application
 
 ```bash
-python -m streamlit run streamlit_app.py
+docker compose up --build
 ```
 
-Dashboard
+Backend
+
+```
+http://localhost:8001
+```
+
+Swagger
+
+```
+http://localhost:8001/docs
+```
+
+Frontend
 
 ```
 http://localhost:8501
@@ -535,9 +383,121 @@ http://localhost:8501
 
 ---
 
+# ▶️ Run Without Docker
+
+### Start FastAPI
+
+```bash
+uvicorn api.main:app --reload
+```
+
+Open
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+### Start Streamlit
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Open
+
+```
+http://localhost:8501
+```
+
+---
+
+# 📡 REST API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/health` | API Health Status |
+| POST | `/predict` | Loan Prediction |
+| POST | `/ask` | AI Credit Assistant |
+
+---
+
+# 🧠 Machine Learning Pipeline
+
+The prediction engine is built using a production-oriented Scikit-Learn Pipeline to ensure identical preprocessing during both training and inference.
+
+### Pipeline Components
+
+- Data Cleaning
+- Feature Engineering
+- ColumnTransformer
+- OneHotEncoder
+- GradientBoostingClassifier
+- Joblib Model Serialization
+
+This architecture eliminates training-serving skew by preserving preprocessing logic inside the trained pipeline.
+
+---
+
+# 📊 Explainable AI (SHAP)
+
+Model predictions are interpreted using **SHAP (SHapley Additive exPlanations)**.
+
+The dashboard provides:
+
+- Approval Probability
+- Rejection Probability
+- SHAP Feature Importance
+- Top Positive Decision Factors
+- Top Negative Risk Factors
+- Individual Prediction Explanation
+
+This makes every prediction transparent and easy to understand.
+
+---
+
+# 🤖 Retrieval-Augmented Generation (RAG)
+
+The AI Credit Assistant is powered by a Retrieval-Augmented Generation pipeline.
+
+Workflow:
+
+```text
+User Question
+      │
+      ▼
+Sentence Transformer Embeddings
+      │
+      ▼
+FAISS Vector Search
+      │
+      ▼
+Relevant Knowledge Chunks
+      │
+      ▼
+Groq LLM
+      │
+      ▼
+Final AI Response
+```
+
+The assistant can answer questions related to:
+
+- RBI Guidelines
+- Credit Underwriting
+- Loan Documentation
+- Credit Policy
+- Risk Factors
+- Prediction Explanation
+
+Every answer includes **source citations** to improve transparency and trust.
+
+---
+
 # 📊 Input Features
 
-The production model predicts loan approval using **17 input features**.
+The model predicts loan approval using **17 carefully selected features**.
 
 ### Applicant Information
 
@@ -551,7 +511,7 @@ The production model predicts loan approval using **17 input features**.
 - Residence Type
 - Active Loans
 
-### Loan Details
+### Loan Information
 
 - Loan Purpose
 - Loan Amount
@@ -573,24 +533,20 @@ The production model predicts loan approval using **17 input features**.
 
 ---
 
-# 📄 Output
+# 📄 Prediction Output
 
 The application returns:
 
-- ✅ Loan Decision
-- ✅ Approval Probability
-- ✅ Rejection Probability
-- ✅ SHAP Explainability
-- ✅ Top Positive Factors
-- ✅ Top Negative Factors
-- ✅ Feature Importance Chart
-- ✅ Explainable PDF Report
-- ✅ AI Credit Assistant
-- ✅ Source Citations
-- ✅ Prediction-aware AI Explanation
-- ✅ Source Documents
-- ✅ RAG Responses
-- ✅ AI Reasoning
+- Loan Decision
+- Approval Probability
+- Rejection Probability
+- SHAP Explainability
+- Top Positive Factors
+- Top Negative Factors
+- Feature Importance Chart
+- Explainable PDF Report
+- AI Credit Assistant Response
+- Source Citations
 
 ---
 
@@ -612,6 +568,14 @@ The application returns:
 
 ---
 
+## AI Credit Assistant
+
+<p align="center">
+<img src="docs/images/ai_assistant.png" width="100%">
+</p>
+
+---
+
 ## Swagger API
 
 <p align="center">
@@ -628,155 +592,88 @@ The application returns:
 
 ---
 
-## AI Credit Assistant
+# 🌍 Deployment
 
-<p align="center">
-<img src="docs/images/ai_assistant.png" width="100%">
-</p>
+### Backend
 
----
+- Render
 
+### Frontend
 
-# 🚀 Future Roadmap
+- Streamlit Community Cloud
 
-The project will continue evolving with production-grade Machine Learning and AI features.
+### Containerization
 
-## Phase 1 ✅ (Completed)
+- Docker
+- Docker Compose
 
-- Modern Streamlit Dashboard
-- FastAPI REST Backend
-- Production sklearn Pipeline
-- Loan Approval Prediction
-- PDF Report Generation
-- Input Validation
-- Health Check Endpoint
-- API Integration
+### API Documentation
 
----
-## Phase 2 ✅ (Completed)
+Swagger UI available at:
 
-- SHAP Explainability
-- Feature Importance Visualization
-- Top Positive Factors
-- Top Negative Factors
-- Prediction Reasoning
-- AI Explainability Dashboard
-- Explainable PDF Reports
----
-
-## Phase 3 ✅ (Completed)
-
-- AI Credit Assistant
-- Credit Policy Knowledge Base
-- FAISS Vector Search
-- Groq LLM Integration
-- Natural Language Decision Explanation
-- Prediction-aware AI
-- Source Citations
+```
+/docs
+```
 
 ---
 
-## Phase 4 🔜
+# ⚙️ Environment Variables
 
-- Docker Support
-- CI/CD Pipeline
-- Cloud Deployment
-- Monitoring & Logging
-- Authentication
-- Rate Limiting
+Create a `.env` file:
 
----
+```env
+GROQ_API_KEY=your_api_key
 
-# 📈 Future Architecture
+MODEL_PATH=models/credit_underwriting_pipeline.pkl
 
-User
-   │
-   ▼
-Streamlit Dashboard
-   │
-   ▼
-FastAPI Backend
-   │
-   ▼
-ML Pipeline
-   │
-   ▼
-SHAP Explainability
-   │
-   ├────────► Dashboard
-   │
-   └────────► RAG Assistant
-                 │
-                 ▼
-           Knowledge Base
-                |
-                ▼
-             Chunking
-                |
-                ▼
-            Embeddings
-                |
-                ▼
-              FAISS
-                |
-                ▼
-             Retriever
-                |
-                ▼
-               Groq
+FAISS_INDEX_PATH=models/rag_index/index.faiss
+
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+```
 
 ---
 
 # 💡 Engineering Highlights
 
-This project demonstrates practical software engineering concepts beyond traditional Machine Learning projects.
+This project demonstrates production-inspired software engineering practices.
 
 ### Backend Engineering
 
 - REST API Development
 - FastAPI
 - Request Validation
-- Response Serialization
-- Modular Project Structure
-
----
+- Modular Codebase
+- Health Monitoring
 
 ### Machine Learning
 
-- Gradient Boosting Classifier
-- Production sklearn Pipeline
-- ColumnTransformer
-- OneHotEncoder
-- Model Serialization
+- Production ML Pipeline
+- Explainable AI
+- SHAP
+- Gradient Boosting
 - Probability Prediction
-- SHAP Explainability
-- Explainable AI (XAI)
-- Feature Attribution
-- Retrieval-Augmented Generation (RAG)
-- Vector Search (FAISS)
-- Large Language Models (Groq)
-- Prompt Engineering
 
----
+### AI Engineering
+
+- Retrieval-Augmented Generation
+- FAISS Vector Search
+- Sentence Transformers
+- Prompt Engineering
+- Groq LLM Integration
 
 ### Frontend
 
 - Streamlit Dashboard
-- Custom CSS
 - Interactive Forms
 - API Integration
 - PDF Report Generation
 
----
+### DevOps
 
-### Software Engineering
-
-- Separation of Concerns
-- Frontend–Backend Architecture
-- Modular Design
-- Error Handling
-- Input Validation
-- Clean Code Organization
+- Docker
+- Docker Compose
+- Environment Configuration
+- Cloud Deployment
 
 ---
 
@@ -785,128 +682,108 @@ This project demonstrates practical software engineering concepts beyond traditi
 - Python
 - FastAPI
 - Streamlit
-- scikit-learn
-- REST APIs
 - Machine Learning
-- Data Preprocessing
-- API Integration
-- Model Deployment
-- Software Architecture
-- Git
-- GitHub
-- Explainable AI (SHAP)
-- RAG
+- Scikit-Learn
+- SHAP
+- REST APIs
+- Docker
+- Docker Compose
+- Render Deployment
+- Prompt Engineering
 - FAISS
-- Vector Databases
+- Retrieval-Augmented Generation
 - Sentence Transformers
 - Groq API
-- Prompt Engineering
+- Git
+- GitHub
 
 ---
 
-# .env.example
+# 🗺️ Project Roadmap
 
-- GROQ_API_KEY=your_groq_api_key
+## ✅ Completed
 
-- MODEL_PATH=models/credit_underwriting_pipeline.pkl
-
-- MODEL_PATH=models/credit_underwriting_pipeline.pkl
-
-- FAISS_INDEX_PATH=rag/index.faiss
-
-- EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-
-
----
-
-# .gitignore
-
-.env
-__pycache__/
-.venv/
-*.pyc
-*.pkl
-
-# 📚 Key Learnings
-
-During this project I learned how to:
-
-- Design a production-inspired ML architecture
-- Separate frontend from backend services
-- Build REST APIs with FastAPI
-- Deploy ML models using sklearn Pipelines
-- Maintain preprocessing consistency between training and inference
-- Generate prediction reports programmatically
-- Validate user inputs before inference
-- Structure projects for scalability and maintainability
+- Production ML Pipeline
+- FastAPI REST API
+- Streamlit Dashboard
+- Explainable AI (SHAP)
+- PDF Report Generation
+- AI Credit Assistant
+- Retrieval-Augmented Generation
+- FAISS Vector Search
+- Groq Integration
+- Docker Support
+- Docker Compose
+- Cloud Deployment
+- Health Monitoring
 
 ---
 
-# 📊 Resume Highlights
+## 🚀 Future Enhancements
 
-This project demonstrates experience in:
+- CI/CD with GitHub Actions
+- Unit & Integration Testing
+- Structured Logging
+- Monitoring & Metrics
+- Authentication
+- Rate Limiting
+- Kubernetes Deployment
+- Model Versioning
+- MLflow Integration
 
-- Production-ready Machine Learning
-- API Development
+---
+
+# 💼 Resume Highlights
+
+This project demonstrates practical experience in:
+
+- Production Machine Learning
+- AI-powered Decision Support Systems
+- Explainable AI (XAI)
+- REST API Development
 - Backend Engineering
-- ML Model Deployment
-- Dashboard Development
-- Software Design
-- Data Processing
-- Retrieval-Augmented Generation (RAG)
-- Explainable AI
-- Vector Search
-- LLM Integration
+- Containerized Deployment
+- Retrieval-Augmented Generation
+- Cloud Deployment
+- Software Architecture
 
 ---
 
 # 🎤 Interview Discussion Topics
 
-This repository can be used to discuss:
+This project can be used to discuss:
 
 - Why FastAPI instead of Flask?
-- Why use a sklearn Pipeline?
+- Why use a Scikit-Learn Pipeline?
 - Why separate frontend and backend?
-- Why OneHotEncoder instead of LabelEncoder?
-- How is preprocessing kept consistent?
-- How does the REST API work?
-- How would this scale for thousands of requests?
-- How would Docker improve deployment?
-- How would SHAP explain predictions?
-- How would a RAG assistant improve the system?
-- Why SHAP instead of LIME?
-- How does TreeExplainer work?
-- How are feature contributions calculated?
-- How do you explain ML predictions to non-technical users?
-- Why did you choose FAISS?
-- Why Groq instead of OpenAI?
+- How does SHAP explain model predictions?
 - How does Retrieval-Augmented Generation work?
-- Why use SHAP with Gradient Boosting?
-- How is prediction context passed to the AI Assistant?
-- How do source citations improve trust?
----
-
-# 🤝 Contributions
-
-Contributions, suggestions, and improvements are welcome.
-
-If you find an issue or have an idea for improvement:
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Open a Pull Request
+- Why FAISS instead of a relational database?
+- Why use Groq for inference?
+- How does Docker simplify deployment?
+- How would you scale this application?
+- How would you improve this system for production?
 
 ---
 
-# ⭐ Support
+# 🌟 Why This Project?
 
-If you found this project useful, consider giving it a ⭐ on GitHub.
+Unlike traditional ML notebooks, this project demonstrates how a Machine Learning model can be deployed as a production-inspired application by combining:
 
-It helps increase visibility and motivates future improvements.
+- ✅ FastAPI REST APIs
+- ✅ Streamlit Frontend
+- ✅ SHAP Explainability
+- ✅ Retrieval-Augmented Generation (RAG)
+- ✅ FAISS Vector Search
+- ✅ Groq LLM Integration
+- ✅ Dockerized Deployment
+- ✅ Cloud Hosting
+- ✅ Explainable PDF Reports
+
+This repository showcases practical AI engineering, backend development, and deployment skills expected in modern production environments.
 
 ---
-
-# 📄 License
+# 📜 License
 
 This project is licensed under the MIT License.
 
@@ -916,24 +793,34 @@ This project is licensed under the MIT License.
 
 ## Krishna Kumar
 
-B.Tech Electronics & Communication Engineering (Minor in AI/ML)
+**B.Tech Electronics & Communication Engineering (Minor in AI/ML)**
 
 Backend Developer • Machine Learning Engineer • AI Enthusiast
 
-### Connect with me
+### Connect with Me
 
-- GitHub: https://github.com/krish8986
-- LinkedIn: https://www.linkedin.com/in/krishna-kumar-deve/
+- **GitHub:** https://github.com/krish8986
+- **LinkedIn:** https://www.linkedin.com/in/krishna-kumar-deve/
 
-If you found this project useful, please consider giving it a ⭐.
+---
 
-## ⭐ Support
+# ⭐ Support
 
 If you found this project useful:
 
 - ⭐ Star this repository
 - 🍴 Fork it
 - 🛠️ Contribute improvements
-- 💬 Share feedback
+- 💬 Share your feedback
 
-Your support helps improve the project and motivates future development.
+Your support motivates further development and helps improve the project.
+
+---
+
+<p align="center">
+
+### 🚀 Building Explainable, Trustworthy & Production-Ready AI Systems
+
+**Made with ❤️ by Krishna Kumar**
+
+</p>

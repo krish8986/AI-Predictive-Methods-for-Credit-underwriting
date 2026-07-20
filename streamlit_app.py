@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 import re
 from io import BytesIO
 from pathlib import Path
@@ -6,13 +7,22 @@ from typing import Any, Dict, Optional
 
 import matplotlib.pyplot as plt
 import requests
-import streamlit as st
 from fpdf import FPDF
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-API_BASE_URL = st.secrets.get("API_BASE_URL", os.getenv("https://ai-predictive-methods-for-credit.onrender.com"),).rstrip("/")
+import os
+import streamlit as st
 
+try:
+    API_BASE_URL = st.secrets["API_BASE_URL"]
+except Exception:
+    API_BASE_URL = os.getenv(
+        "API_BASE_URL",
+        "https://ai-predictive-methods-for-credit.onrender.com",
+    )
+
+API_BASE_URL = API_BASE_URL.rstrip("/")
 
 session = requests.Session()
 
