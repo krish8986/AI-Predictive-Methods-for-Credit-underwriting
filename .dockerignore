@@ -1,0 +1,22 @@
+.git
+.gitignore
+
+venv/
+.venv/
+
+__pycache__/
+*.pyc
+
+.env
+
+assets/
+docs/
+notebooks/
+
+README.md
+
+.devcontainer/
+
+.vscode/
+
+demo video.mp4
