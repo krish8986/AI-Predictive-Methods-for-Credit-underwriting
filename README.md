@@ -1,3 +1,20 @@
+## 📑 Table of Contents
+
+- Overview
+- Features
+- Technology Stack
+- Architecture
+- Application Preview
+- Installation
+- Docker
+- Deployment
+- REST APIs
+- Machine Learning Pipeline
+- Explainable AI
+- RAG Assistant
+- Future Enhancements
+- Author
+
 <p align="center">
 <img src="docs/images/banner.png">
 </p>
@@ -232,37 +249,30 @@ Generated Answer
 
 # 📂 Project Structure
 
-```
-
-AI-Credit-Underwriting/
+```text
+AI-Predictive-Methods-for-Credit-underwriting/
 │
-├── api/
-│   ├── main.py
-│   ├── schemas.py
-│   ├── services/
-│   ├── models/
-│   └── utils/
+├── api/                     # FastAPI backend
+├── assets/                  # Images, icons, and static assets
+├── data/                    # Dataset files
+├── docker/                  # Docker-related configuration
+├── docs/                    # Project documentation & screenshots
+├── knowledge/               # Knowledge base for RAG
+├── logs/                    # Application logs
+├── models/                  # Trained ML models & artifacts
+├── notebooks/               # Jupyter notebooks & experimentation
+├── rag/                     # RAG pipeline implementation
+├── tests/                   # Unit & integration tests
 │
-├── app/
-│   ├── streamlit_app.py
-│   ├── components/
-│   └── assets/
-│
-├── models/
-│   ├── trained_pipeline.pkl
-│   ├── rag_index/
-│   └── artifacts/
-│
-├── notebooks/
-│
-├── reports/
-│
-├── Dockerfile
+├── streamlit_app.py         # Streamlit frontend
+├── model_training.py        # Model training script
 ├── docker-compose.yml
 ├── requirements-api.txt
-├── requirements-streamlit.txt
-└── README.md
-
+├── requirements.txt
+├── runtime.txt
+├── LICENSE
+├── README.md
+└── .gitignore
 ```
 
 ---
@@ -293,9 +303,9 @@ Displays the predicted loan approval decision along with the model's confidence 
 
 ---
 
-## 📈 SWAGGER
+## 📘 API Documentation (Swagger UI)
 
-Visualizes swagger backend render page.
+Interactive OpenAPI documentation generated automatically by FastAPI for testing and exploring REST endpoints.
 
 <p align="center">
   <img src="docs/images/swagger.png" width="900">
@@ -718,6 +728,7 @@ Planned improvements include:
 - Loan decision analytics dashboard
 - Multi-model comparison
 - Real-time monitoring and alerting
+- Kubernetes deployment
 
 ---
 
@@ -771,6 +782,8 @@ Through this project, I gained hands-on experience in:
 | Cloud Deployment | ✅ Complete |
 | AI Assistant (RAG - Local) | ✅ Complete |
 | AI Assistant (Hosted Deployment) | 🚧 Deployment Optimization in Progress |
+
+Overall Project Completion: 95%+
 
 ---
 
@@ -848,7 +861,7 @@ Final Year B.Tech (Electronics & Communication Engineering) with minor in (AL/ML
 
 Maharaja Agrasen Institute of Technology (MAIT), New Delhi
 
-Interested in:
+Areas of Interest:
 
 - Machine Learning
 - Artificial Intelligence
