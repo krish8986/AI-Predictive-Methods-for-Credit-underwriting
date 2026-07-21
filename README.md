@@ -1,3 +1,7 @@
+<p align="center">
+<img src="docs/images/banner.png">
+</p>
+
 # 🏦 AI Credit Underwriting Platform
 
 > **Production-ready Machine Learning Platform for Intelligent Loan Approval Prediction with Explainable AI, REST APIs, Docker Deployment, and an AI-powered Retrieval-Augmented Generation (RAG) Assistant.**
