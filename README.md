@@ -1049,7 +1049,7 @@ Interested in:
 
 - **LinkedIn:** https://www.linkedin.com/in/krishna-kumar-8986/
 - **GitHub:** https://github.com/krish8986
-- **Email:** *(Add your preferred email address here)*
+- **Email:** krishnagaya234@gmail.com
 
 ---
 
